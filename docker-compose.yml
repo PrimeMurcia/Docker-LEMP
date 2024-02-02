@@ -1,0 +1,39 @@
+version: '3.9'
+
+services:
+    nginx:
+        image: nginx
+        container_name: (name_of_projetc)
+        restart: always
+        depends_on:
+            - php
+            - mysql
+        volumes:
+            - "./conf/nginx/:/etc/nginx/conf.d/"
+            - "./data/html/:/var/www/html/"
+        ports:
+            - 80:80
+            - 443:443
+            
+    php:
+        build: ./build/php-fpm
+        container_name: name_of_project_php
+        restart: always
+        volumes:
+            - "./conf/php/:/usr/local/etc/php/conf.d/"
+            - "./data/html/:/var/www/html/"
+            
+    mysql:
+        image: mysql:latest
+        container_name: optidiet_mysql
+        restart: always
+        environment:
+            MYSQL_DATABASE: ${DB_NAME}
+            MYSQL_USER: ${DB_USER}
+            MYSQL_PASSWORD: ${DB_PASS}
+            MYSQL_ROOT_PASSWORD: ${DB_ROOT_PASS}
+        volumes:
+            - "./data/db/:/var/lib/mysql"
+            - "./conf/mysql/:/docker-entrypoint-initdb.d/"
+        ports:
+            - 3306:3306
