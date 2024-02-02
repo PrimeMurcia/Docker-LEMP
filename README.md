@@ -19,7 +19,7 @@ This project sets up a LEMP (Linux, Nginx, MySQL, PHP) stack using Docker for co
 2. **Go to your project directory::**
 
    ```bash
-   cd project
+   cd your_project
    
 3. **Create necessary directories for Nginx, PHP, and MySQL:**
    
