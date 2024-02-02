@@ -14,7 +14,7 @@ This project sets up a LEMP (Linux, Nginx, MySQL, PHP) stack using Docker for co
 1. **Clone the repository:**
 
    ```bash
-   git clone https://github.com/PrimeMurcia/Docker-LEMP
+   git clone https://github.com/PrimeMurcia/Docker-LEMP.git
 
 2. **Go to your project directory::**
 
